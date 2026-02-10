@@ -1,82 +1,36 @@
-# MPF.AI - Modern Public Management Platform
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## 🚀 Project Overview
-**MPF.AI** is a comprehensive platform for public administration management, built with a focus on modularity, scalability, and clean architecture. It handles Citizen Management (GC), Department Administration, Task Tracking, and Strategic Planning (FODA).
+## Getting Started
 
-The project uses a **Screaming Architecture** combined with **Hexagonal (DDD)** principles to ensure that the code structure reflects the business domain.
-
-## 🛠️ Tech Stack
-
-- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **State Management**: [Redux Toolkit](https://redux-toolkit.js.org/) & [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) & [Material Tailwind](https://www.material-tailwind.com/)
-- **Testing**: [Vitest](https://vitest.dev/), [React Testing Library](https://testing-library.com/), [MSW](https://mswjs.io/)
-- **Validation**: [Zod](https://zod.dev/)
-
-## 📂 Project Structure
+First, run the development server:
 
 ```bash
-src/
-├── _core/                  # Application Core (Auth, Store, API Facade)
-├── _shared/                # Shared Kernel (Base Components, Types, Infra)
-├── app/                    # Business Domains (Feature Modules)
-│   ├── departments/        # Department Management
-│   ├── gc/                 # Citizen Management (Gestión Ciudadana)
-│   ├── tasks/              # Task Tracking
-│   ├── foda/               # SWOT Analysis
-│   └── admin/              # User Administration
-└── __tests__/              # Global Tests & Mocks
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Each domain folder (e.g., `src/app/departments/`) follows a **Hexagonal** internal structure:
-- **`_domain/`**: Pure business logic, types, and schemas.
-- **`_application/`**: Use cases, Redux slices, and hooks.
-- **`components/`**: UI components (Adapters).
-- **`_test/`**: Domain-specific tests.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 🏁 Getting Started
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-1.  **Clone the repository**:
-    ```bash
-    git clone <repository-url>
-    cd mpf.ai
-    ```
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-2.  **Install dependencies**:
-    ```bash
-    npm install
-    ```
+## Learn More
 
-3.  **Run the development server**:
-    ```bash
-    npm run dev
-    ```
-    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To learn more about Next.js, take a look at the following resources:
 
-## 🧪 Running Tests
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-This project uses a **Hybrid Testing Strategy** (see [TESTING.md](./TESTING.md) for details).
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-### Unit & Component Tests (Mocked)
-Run these by default. They use **MSW** to mock API responses, so no backend is needed.
-```bash
-npm test
-```
+## Deploy on Vercel
 
-### Integration Tests (Real Backend)
-To test against a real running backend (e.g., localhost:8080):
-```bash
-npm run test:integration
-```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## 🏗️ Architecture Highlights
-
-### Centralized API Slice
-We use Redux Toolkit's `injectEndpoints` pattern.
-- **Base**: Defined in `src/_shared/_infrastructure/api/baseApiSlice.ts`.
-- **Injected**: Each domain injects its own endpoints (e.g., `departmentsApiSlice.ts`).
-- **Unified**: Everything is re-exported from `src/_core/api/index.ts`.
-
-### Screaming Architecture
-The folder structure tells you *what* the application does. If you need to work on "Departments", you go to `src/app/departments`. You don't hunt through a generic `components` folder.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

@@ -1,6 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/**
+ * Fuentes locales configuradas:
+ *
+ * - Inter (Variable Font) - Fuente principal del proyecto
+ *   Uso: Por defecto en todo el body, o con class="font-inter"
+ *   Clases de peso: font-thin (100) a font-black (900)
+ *
+ * - Roboto (Variable Font) - Fuente alternativa
+ *   Uso: class="font-roboto"
+ *
+ * - Roboto Condensed - Para encabezados o espacios reducidos
+ *   Uso: class="font-roboto-condensed"
+ *
+ * Ejemplos:
+ * <h1 className="font-roboto-condensed font-bold">Título</h1>
+ * <p className="font-inter font-normal">Texto normal</p>
+ * <span className="font-roboto font-semibold">Énfasis</span>
+ */
+
 body {
   background-color: #dddddd;
 }

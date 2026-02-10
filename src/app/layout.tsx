@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider, ReduxProvider } from "@/_core/providers";
 import { NavbarSimple, StickyNavbar } from "./components/header";
-
-const inter = Inter({ subsets: ["latin"] });
+import { inter, roboto } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Tablero de gestion",
@@ -19,7 +17,7 @@ export default function RootLayout({
   return (
     <ReduxProvider>
       <ThemeProvider>
-        <html lang="en">
+        <html lang="es" className={`${inter.variable} ${roboto.variable}`}>
           <body className={inter.className}>
             <StickyNavbar />
 
