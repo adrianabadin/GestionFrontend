@@ -2,15 +2,15 @@ import { describe, it, expect } from 'vitest';
 
 describe('Password Reset Page', () => {
   it('should import the password reset page component successfully', async () => {
-    const module = await import('@/app/login/passwordreset/[token]/page');
-    expect(module).toBeDefined();
-    expect(module.Page).toBeDefined();
-    expect(module.default).toBeDefined();
+    const pageModule = await import('@/app/login/passwordreset/[token]/page');
+    expect(pageModule).toBeDefined();
+    expect(pageModule.Page).toBeDefined();
+    expect(pageModule.default).toBeDefined();
   });
 
   it('should have a default export as a function', async () => {
-    const module = await import('@/app/login/passwordreset/[token]/page');
-    expect(typeof module.default).toBe('function');
+    const pageModule = await import('@/app/login/passwordreset/[token]/page');
+    expect(typeof pageModule.default).toBe('function');
   });
 
   it('should use useChangePasswordMutation from auth API', async () => {

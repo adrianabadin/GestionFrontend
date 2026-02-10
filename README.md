@@ -18,7 +18,32 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Fuentes Locales
+
+Este proyecto usa fuentes locales optimizadas con [`next/font/local`](https://nextjs.org/docs/basic-features/font-optimization) para mejor rendimiento y privacidad:
+
+- **Inter** (Variable Font) - Fuente principal por defecto
+- **Roboto** (Variable Font) - Fuente alternativa (`font-roboto`)
+- **Roboto Condensed** - Para encabezados y espacios reducidos (`font-roboto-condensed`)
+
+### Ver Demostración de Fuentes
+
+Visita [http://localhost:3000/fonts-demo](http://localhost:3000/fonts-demo) para ver todas las fuentes en acción.
+
+### Uso en Componentes
+
+```tsx
+// Fuente por defecto (Inter)
+<p className="font-normal">Texto normal</p>
+
+// Fuente Roboto
+<h2 className="font-roboto font-bold">Encabezado con Roboto</h2>
+
+// Fuente Roboto Condensed
+<h1 className="font-roboto-condensed font-semibold">Título compacto</h1>
+```
+
+Para más información, consulta [`/public/fonts/README.md`](/public/fonts/README.md).
 
 ## Learn More
 
