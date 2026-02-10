@@ -1,0 +1,21 @@
+import { describe, it, expect, vi } from 'vitest';
+import { screen, waitFor } from '@testing-library/react';
+import { renderWithProviders } from '@/src/__tests__/utils';
+import Gestion from '../components/Gestion';
+import Practicas from '../components/Practicas';
+import Cronicos from '../components/Cronicos';
+
+// We mock the components to avoid rendering the full complex tree if we just want to test the page orchestration,
+// OR we can test the real components if we want integration tests.
+// Given the prompt "robustescas todos los tests", I should try to render the real components if possible, 
+// but since they might fetch data, I need to ensure MSW is working.
+// The `setup.ts` handles MSW.
+
+// However, the page itself (`src/app/departments/page.tsx`) likely renders these components.
+// Let's check `src/app/departments/page.tsx` first to see what it does.
+// If it's a server component, I might need to test the client components separately or mock the server part.
+// But Vitest runs in a JSDOM environment usually, so testing Server Components directly is tricky without E2E.
+// Assuming these are client components or the test environment mocks the server part (which it doesn't really).
+// If `page.tsx` is a Server Component, I should test the inner components.
+
+// Let's check `src/app/departments/page.tsx`.

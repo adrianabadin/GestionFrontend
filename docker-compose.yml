@@ -1,0 +1,8 @@
+services:
+  front:
+    container_name: rsxfront
+    build: .
+    ports:
+      - "3001:3000"
+
+    
