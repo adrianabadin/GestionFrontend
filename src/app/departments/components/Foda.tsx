@@ -17,6 +17,7 @@ import {
 } from "@material-tailwind/react";
 import TabBar from "./TabBar";
 import {
+  fodaApiSlice,
   FodaItem,
   fodaItem,
   useAddMenaceMutation,
@@ -38,7 +39,7 @@ import {
   useRemoveStrengthMutation,
   useRemoveWeaknessMutation,
 } from "@/_core/api";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -84,9 +85,17 @@ function FodaCards({
   state?: string;
 }) {
   const requestObject = { department, state };
-  const { data, isSuccess, isError } = useGetFodaQuery(requestObject);
-  if (isSuccess) console.log(data);
-  else if (isError) console.log("error");
+  const [getFoda, { data, isSuccess, isError }] =
+    fodaApiSlice.endpoints.getFoda.useLazyQuery(); // useGetFodaQuery(requestObject);
+  useEffect(() => {
+    if (department !== undefined && state !== undefined) {
+      getFoda({ department, state });
+    } else {
+      if (department !== undefined) {
+        getFoda({ department });
+      }
+    }
+  }, [getFoda, department, state]);
   const [addStrength] = useAddStrengthMutation();
   const [removeStrength] = useRemoveStrengthMutation();
   const [addWeakness] = useAddWeaknessMutation();
@@ -228,17 +237,17 @@ function SingleCard({
   handleRemove: (...args: any) => any;
 }) {
   const [open, setOpen] = useState(false);
-  if (data !== undefined) console.log(data, "dentro del card");
+  // if (data !== undefined) console.log(data, "dentro del card");
   return (
     <Card
       className={`col-span-1 min-h-72 m-1 flex justify-between rounded-none ${
         color === "pink"
           ? "bg-pink-400"
           : color === "blue"
-          ? "bg-blue-600"
-          : color === "degrade"
-          ? "bg-gradient-to-r from-pink-600 to-blue-600"
-          : "bg-blue-gray-400"
+            ? "bg-blue-600"
+            : color === "degrade"
+              ? "bg-gradient-to-r from-pink-600 to-blue-600"
+              : "bg-blue-gray-400"
       }`}
     >
       <CardBody className="flex flex-col justify-evenly">
@@ -270,8 +279,8 @@ function SingleCard({
             color === "pink"
               ? "bg-blue-500"
               : color === "blue"
-              ? "bg-pink-400"
-              : "bg-black"
+                ? "bg-pink-400"
+                : "bg-black"
           }`}
           variant="filled"
           onClick={() => setOpen(true)}
@@ -326,7 +335,7 @@ function ListItemComponent({
               .unwrap()
               .then()
               .catch((error: PrismaError) =>
-                swal.fire(error.name, error.message, "error")
+                swal.fire(error.name, error.message, "error"),
               )
           }
         >

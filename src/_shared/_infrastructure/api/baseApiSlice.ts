@@ -13,7 +13,8 @@ export const apiSlice = createApi({
     "tasks",
     "foda",
     "users",
-    "states"
+    "states",
+    "ganttItems"
   ],
   endpoints: () => ({})
 });

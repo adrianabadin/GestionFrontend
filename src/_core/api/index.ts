@@ -113,3 +113,47 @@ export type { StatesType, DemografyCreateType } from "@/app/states/_domain";
 // Re-export additional types and schemas for backward compatibility
 export { DerivationSchema, DerivationSchema as derivationSchema } from "@/app/gc/_domain/schemas";
 export type { DerivationType, GetIssues } from "@/app/gc/_domain/types";
+
+// Re-export from ganttApiSlice
+export {
+  ganttApiSlice,
+  useGetGanttItemsQuery,
+  useGetGanttItemQuery,
+  useCreateGanttItemMutation,
+  useUpdateGanttItemMutation,
+  usePatchGanttDatesMutation,
+  usePatchGanttProgressMutation,
+  useDeleteGanttItemMutation,
+  useCompleteGanttItemMutation,
+  useGetGanttItemDependenciesQuery,
+  useSearchGanttItemsQuery,
+  useGetDependenciesQuery,
+  useCreateDependencyMutation,
+  useDeleteDependencyMutation,
+  useGetItemDependenciesQuery,
+} from "@/app/gantt/_application/slices";
+export type {
+  GanttItemResponse,
+  GanttListResponse,
+  CreateGanttItemType,
+  UpdateGanttItemType,
+  GanttQueryFilters,
+  GanttItemType,
+} from "@/app/gantt/_domain";
+export {
+  CreateGanttItemSchema,
+  UpdateGanttItemSchema,
+  GanttItemResponseSchema,
+} from "@/app/gantt/_domain";
+
+// Re-export from googleApiSlice
+export {
+  googleApiSlice,
+  useCreateStructuredDocumentMutation,
+  useUploadGoogleImageMutation,
+} from "@/app/gantt/_application/slices/googleApiSlice";
+export type {
+  StructuredDocumentRequest,
+  CreateStructuredDocumentResponse,
+  UploadImageResponse,
+} from "@/app/gantt/_application/slices/googleApiSlice";

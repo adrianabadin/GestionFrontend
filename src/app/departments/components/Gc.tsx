@@ -56,7 +56,7 @@ function Gc() {
   if (isError && "data" in error && error.data === "Unauthorized") {
     clearAuth();
   }
-  console.log(error, "data");
+  // console.log(error, "data");
   return (
     <section className="w-full flex flex-col justify-center">
       <Card placeholder={""} className="w-full mx-4 mt-4">
@@ -113,7 +113,7 @@ function Gc() {
           </Typography>
           {isSuccess && Array.isArray(issues) ? (
             issues.map((item, i) => {
-              console.log(item, "dada");
+              // console.log(item, "dada");
               return (
                 <IssueRow
                   key={item.id}
@@ -194,7 +194,7 @@ function Gc() {
           </Typography>
           {isSuccessW && Array.isArray(working) ? (
             working.map((item, i) => {
-              console.log(item, "dada");
+              // console.log(item, "dada");
               return (
                 <IssueRow
                   key={item.id}
@@ -275,7 +275,7 @@ function Gc() {
           </Typography>
           {isSuccessW && Array.isArray(finished) ? (
             finished.map((item, i) => {
-              console.log(item, "dada");
+              // console.log(item, "dada");
               return (
                 <IssueRow
                   key={item.id}
@@ -330,7 +330,7 @@ function IssueRow({
       } p-0 m-0 py-3 w-full shadow-none border-none col-span-12 grid grid-cols-12 hover:bg-blue-200`}
       onClick={() => {
         setOpen(true);
-        console.log(data);
+        // console.log(data);
         setIssue(data);
       }}
     >

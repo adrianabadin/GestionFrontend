@@ -23,7 +23,7 @@ export function TabBar({
   }[];
 }) {
   return (
-    <Tabs value="tasks" id="menu" className="w-full bg-gray-100 text-blue-500">
+    <Tabs value="tasks" id="menu" className="w-full bg-white text-blue-500">
       <TabsHeader
         placeholder={""}
         className="w-fit bg-white text-blue-500"

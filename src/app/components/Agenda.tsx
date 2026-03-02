@@ -95,7 +95,7 @@ export default function TaskManager({
     "data" in errorTasks &&
     errorTasks.data == "Unauthorized"
   ) {
-    console.log("borrando auth");
+    // console.log("borrando auth");
     clearAuth();
   }
   if (
@@ -259,7 +259,7 @@ export default function TaskManager({
                 let text: string = "";
                 checked.forEach((item) => {
                   const result = completedTasks?.find(
-                    (task) => task.id === item
+                    (task) => task.id === item,
                   );
                   if (result !== undefined && result?.date !== null)
                     text +=
@@ -281,9 +281,9 @@ export default function TaskManager({
                   text,
                   user: username,
                 })
-                  .then((response) => console.log(response, "sllsfa"))
+                  //.then((response) => console.log(response, "sllsfa"))
                   .catch((e) => console.log(e, "error"));
-                console.log("Generando Informe", text);
+                //console.log("Generando Informe", text);
               }}
             >
               {isLoading ? <Spinner /> : "Informe"}
@@ -366,8 +366,8 @@ function Task({
           task.flag === "red"
             ? "bg-red-500"
             : task.flag === "green"
-            ? "bg-green-500"
-            : "bg-yellow-500"
+              ? "bg-green-500"
+              : "bg-yellow-500"
         }`}
       ></div>
       <div className="flex justify-around items-start align-top">
@@ -468,7 +468,7 @@ function CompletedTask({
   setChecked: Dispatch<SetStateAction<string[]>>;
   resetCreateDocument: (...args: any) => void;
 }) {
-  console.log(task, "tarea");
+  // console.log(task, "tarea");
   const [view, setView] = useState<boolean>(false);
   return (
     <>
@@ -819,7 +819,7 @@ function ViewTask({
               Fecha :
             </Typography>
             <p className="ml-2">{`${new Date(
-              task.date
+              task.date,
             ).toLocaleDateString()}`}</p>
           </div>
           <div className="flex flex-row text-lg col-span-1 ">
