@@ -4,7 +4,6 @@
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 import { Suspense } from "react";
-import { Typography } from "@material-tailwind/react";
 import { getInitialGanttItems } from "@/app/actions/gantt";
 import { GanttClientWrapper } from "./_components/GanttClientWrapper";
 
@@ -30,9 +29,9 @@ export default async function GanttPage() {
 
   return (
     <div className="p-4">
-      <Typography variant="h2" color="blue" className="mb-4" placeholder="">
+      <h2 className="mb-4 text-2xl font-semibold text-blue-600">
         Gestión de Proyectos - Gantt
-      </Typography>
+      </h2>
 
       {/* Suspense boundary para loading state */}
       <Suspense fallback={<GanttLoadingSkeleton />}>
